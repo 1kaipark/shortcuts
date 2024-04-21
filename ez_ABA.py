@@ -6,7 +6,7 @@
   じしf_,)ノ
 '''
 
-def get_name_for_id(id):
+def get_name_for_id(reg):
     '''returns ABA name for region ID'''
     from allensdk.core.mouse_connectivity_cache import MouseConnectivityCache
     mcc = MouseConnectivityCache()
