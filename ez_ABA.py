@@ -11,7 +11,7 @@ def get_name_for_id(reg):
     from allensdk.core.mouse_connectivity_cache import MouseConnectivityCache
     mcc = MouseConnectivityCache()
     structure_tree = mcc.get_structure_tree()
-    return structure_tree.get_structures_by_id([reg])[0]['name']
+    return structure_tree.get_structures_by_id([int(reg)])[0]['name']
 
 def generate_ABA_df():
     from allensdk.core.mouse_connectivity_cache import MouseConnectivityCache
@@ -26,4 +26,4 @@ def generate_ABA_df():
 
 def search_for_name(str):
     df = generate_ABA_df()
-    return df[df['name'].str.lower().str.contains(str)]
+    return df[df['name'].str.lower().str.contains(str.lower())]
