@@ -88,5 +88,9 @@ def crop_rect(img, rect, pad = 50):
                    x - pad:x + w + pad]
     return img_crop
 
+def save_img_array(img, dst):
+    out_img = Image.fromarray(img)
+    out_img.save(dst)
+
 
 
