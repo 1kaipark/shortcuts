@@ -17,6 +17,14 @@ def choose_file(initialdir = None, title = None, ext = None) -> str:
     root.withdraw()
     return filedialog.askopenfilename(initialdir = initialdir, title = title, defaultextension = ext)
 
+def read_file(initialdir = None, title = None, ext = None):
+    import tkinter as tk
+    from tkinter import filedialog
+    root = tk.Tk()
+    root.withdraw()
+    fi = filedialog.askopenfilename(initialdir = initialdir, title = title, defaultextension = ext)
+    return open(fi, 'r').read()
+
 def choose_files(initialdir = None, title = None, ext = None) -> list:
     import tkinter as tk
     from tkinter import filedialog
@@ -41,3 +49,11 @@ def save_file_name(initialdir = None, title = None, ext = None):
     root = tk.Tk()
     root.withdraw()
     return filedialog.asksaveasfilename(initialdir = initialdir, title = title, defaultextension = ext)
+
+def download_url(url, dst):
+    import requests
+    response = requests.get(url)
+    assert response.status_code == 200
+
+    with open(dst, 'wb') as f:
+        f.write(response.content)
